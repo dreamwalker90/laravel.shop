@@ -23,7 +23,7 @@
     <link href="/assets/css/sidebar-menu.css" rel="stylesheet"/>
     <!-- Custom Style-->
     <link href="/assets/css/app-style.css" rel="stylesheet"/>
-
+    <link href="/assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="app">

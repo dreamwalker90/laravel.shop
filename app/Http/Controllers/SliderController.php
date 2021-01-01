@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Test;
-use App\Models\User;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class testController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class testController extends Controller
      */
     public function index()
     {
-
-        return view('test');
+        //
     }
 
     /**
@@ -32,7 +30,7 @@ class testController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,10 +41,10 @@ class testController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Test $test
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function show(Test $test)
+    public function show(Slider $slider)
     {
         //
     }
@@ -54,10 +52,10 @@ class testController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Test $test
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Test $test)
+    public function edit(Slider $slider)
     {
         //
     }
@@ -65,11 +63,11 @@ class testController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Test $test
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Test $test)
+    public function update(Request $request, Slider $slider)
     {
         //
     }
@@ -77,25 +75,11 @@ class testController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Test $test
+     * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Test $test)
+    public function destroy(Slider $slider)
     {
         //
     }
-
-
-    public function ImageUploader($file)
-    {
-        if ($file == null)
-            return '../uploads/images/noimage.jpg';
-        $filename = time() . "-" . $file->getClientOriginalName();
-        //$path=public_path('/../uploads/images/');
-        $path = public_path('uploads/images/');
-        $file->move($path, $filename);
-        return "uploads/images/". $filename;
-    }
-
-
 }
