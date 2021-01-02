@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
@@ -34,5 +35,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['auth']],function (){
     Route::resource('user', UserController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('role', RoleController::class);
+    Route::resource('slider', SliderController::class);
+    Route::resource('category', CategoryController::class);
 });
 

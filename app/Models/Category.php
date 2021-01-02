@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Category extends Model
 {
     use HasFactory;
-    protected $guardes=['id'];
+    protected $fillable=['title','title_fa'];
 }

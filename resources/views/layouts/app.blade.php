@@ -64,6 +64,8 @@
                                 <li><a href="{{route('role.index')}}"> roles List</a></li>
                                 <li><a href="{{route('permission.index')}}">permissions list</a></li>
                                 <li><a href="{{route('permission.create')}}"> create new permission</a></li>
+                                <li><a href="{{route('category.create')}}"> create new category</a></li>
+                                <li><a href="{{route('category.index')}}"> category list</a></li>
                             </ul>
                             @endcan
                         </li>
