@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('title_fa');
+            $table->integer('chid');
         });
     }
 

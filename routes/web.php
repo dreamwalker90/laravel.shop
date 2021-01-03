@@ -30,7 +30,7 @@ Route::get('/home',function (){
 Auth::routes();
 Route::get('/test',[TestController::class,'index']);
 Route::post('Admin/products/create',[ProductController::class,'create']);
-Route::group(['prefix'=>'Admin','middleware'=>['auth']],function (){
+Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function (){
     Route::resource('products', ProductController::class);
     Route::resource('user', UserController::class);
     Route::resource('permission', PermissionController::class);

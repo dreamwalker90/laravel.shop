@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Rocker - Bootstrap4  Admin Dashboard Template</title>
+    <title>Bootstrap4  Admin Dashboard Template</title>
     <!--favicon-->
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
     <!-- Vector CSS -->
@@ -170,7 +170,7 @@
                 <footer class="footer">
                     <div class="container">
                         <div class="text-center">
-                            Copyright © 2020 Rocker Admin
+                           Footer
                         </div>
                     </div>
                 </footer>
