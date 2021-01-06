@@ -15,7 +15,7 @@ class SliderController extends Controller
     public function index()
     {
         $slider=Slider::paginate(10);
-        return view('');
+        return view('Admin.slider.index',compact('slider'));
     }
 
     /**

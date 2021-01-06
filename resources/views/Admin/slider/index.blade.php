@@ -1,20 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <h4 class="d-flex justify-content-start">جستجوی دسته بندی</h4>
-    <div class="d-inline-flex p-3 justify-content-start">
-        <form action="">
-            <input type="text" name="title" placeholder="عنوان انگلیسی" class="input-group">
-            <br>
-            <input type="text" name="title_fa" placeholder="عنوان فارسی" class="input-group">
-            <br>
-            <input type="submit" value="search" class="btn btn-sm btn-info">
-        </form>
-    </div>
+
     <table class="table text-center table-bordered table-hover table-striped">
         <tr class="thead-dark">
             <th>ردیف</th>
-            <th>نام دسته بندی</th>
-            <th>نام فارسی دسته بندی</th>
+            <th>عنوان</th>
+            <th>لینک</th>
+            <th>تصویر</th>
             <th>ویرایش</th>
             <th>حذف</th>
         </tr>
