@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,14 @@ Route::get('/', function () {
 Route::get('/home',function (){
    return view('home');
 });
+Route::get('login/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+Route::get('login/google/callback', function () {
+    $user = Socialite::driver('google')->user();
+
+//     $user->token
+});
 
 Auth::routes();
 Route::get('/test',[TestController::class,'index']);
@@ -35,7 +45,7 @@ Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function ()
     Route::resource('user', UserController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('role', RoleController::class);
-    Route::resource('slider', SliderController::class);
     Route::resource('category', CategoryController::class);
 });
+Route::resource('slider', SliderController::class);
 

@@ -66,6 +66,8 @@
                                 <li><a href="{{route('permission.create')}}"> create new permission</a></li>
                                 <li><a href="{{route('category.create')}}"> create new category</a></li>
                                 <li><a href="{{route('category.index')}}"> category list</a></li>
+                                <li><a href="{{route('slider.create')}}"> create slider</a></li>
+                                <li><a href="{{route('slider.index')}}"> slider list</a></li>
                             </ul>
                             @endcan
                         </li>

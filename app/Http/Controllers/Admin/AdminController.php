@@ -13,8 +13,8 @@ class AdminController extends Controller
         if($file == null)
             return '../uploads/images/noimage.jpg';
         $filename=time()."-".$file->getClientOriginalName();
-        //$path=public_path('/../uploads/images/');
-        $path=public_path('/uploads/images');
+//        $path=public_path('/../uploads/images/');
+        $path='assets/images/uploaded/';
         $file->move($path,$filename);
         return $path.$filename;
     }

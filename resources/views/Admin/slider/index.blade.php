@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h4 class="d-flex justify-content-start">جستجوی دسته بندی</h4>
+    <h4 class="d-flex justify-content-start">افزودن اسلاید جدید</h4>
 
     <table class="table text-center table-bordered table-hover table-striped">
         <tr class="thead-dark">
@@ -11,17 +11,18 @@
             <th>ویرایش</th>
             <th>حذف</th>
         </tr>
-        @foreach($category as$key=>$val)
+        @foreach($slider as $key=>$val)
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$val->title}}</td>
-                <td>{{$val->title_fa}}</td>
+                <td>{{$val->url}}</td>
+                <td><img src="{{$val->image}}" alt=""></td>
                 <td>
 {{--                @can('editing_Products',$product)--}}
-                    <a class="btn btn-primary" href="{{route('category.edit',$val->id)}}">Edit</a>
+                    <a class="btn btn-primary" href="{{route('slider.edit',$val->id)}}">Edit</a>
 {{--                @endcan--}}
                 </td>
-                <form method="post" action="{{route('category.destroy',$val->id)}}">
+                <form method="post" action="{{route('slider.destroy',$val->id)}}">
                     @csrf
                     @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button></td>
@@ -30,7 +31,7 @@
         @endforeach
     </table>
     <div class="text-center">
-        {{$category->links('layouts.paginate')}}
+        {{$slider->links('layouts.paginate')}}
     </div>
 @endsection
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class SliderController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.slider.create');
     }
 
     /**
@@ -36,7 +37,13 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file=$this->ImageUploader($request['image']);
+        $slider=Slider::create([
+            'title'=>$request->get('title'),
+            'url'=>$request->get('url'),
+            'image'=>$file
+        ]);
+        return redirect(route('slider.index'));
     }
 
     /**
@@ -58,7 +65,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        return view('Admin.slider.edit',compact('slider'));
     }
 
     /**
@@ -70,7 +77,15 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+        if ($request['image']){
+           $img=$this->ImageUploader($request['image']);
+        }else{
+           $img=$request->image;
+        }
+        $data=$request->all();
+        $data['image']=$img;
+        $slider->update($data);
+        return view('Admin.slider.edit',compact('slider'));
     }
 
     /**
@@ -81,6 +96,8 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+        unlink($slider->image);
+        return back();
     }
 }
