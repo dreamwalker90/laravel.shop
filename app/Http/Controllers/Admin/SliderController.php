@@ -37,7 +37,7 @@ class SliderController extends AdminController
      */
     public function store(Request $request)
     {
-        $file=$this->ImageUploader($request['image']);
+        $file=$this->ImageUploader($request['image'],20,20);
         $slider=Slider::create([
             'title'=>$request->get('title'),
             'url'=>$request->get('url'),
@@ -78,7 +78,8 @@ class SliderController extends AdminController
     public function update(Request $request, Slider $slider)
     {
         if ($request['image']){
-           $img=$this->ImageUploader($request['image']);
+           $img=$this->ImageUploader($request['image'],20,20);
+           unlink($slider->image);
         }else{
            $img=$request->image;
         }
