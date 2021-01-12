@@ -48,4 +48,5 @@ Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function ()
     Route::resource('category', CategoryController::class);
 });
 Route::resource('slider', SliderController::class);
+Route::get('products/gallery',[ProductController::class,'gallery']);
 

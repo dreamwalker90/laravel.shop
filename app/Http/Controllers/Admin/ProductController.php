@@ -119,4 +119,11 @@ class ProductController extends AdminController
         $product->delete();
         return redirect(route('products.index'));
     }
+    public function gallery(Request $request){
+        $id=$request->get('id');
+        $product=Product::findOrFail($id);
+        return view('Admin.product.index',compact('product'));
+
+
+    }
 }

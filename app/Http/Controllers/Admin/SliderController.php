@@ -39,8 +39,8 @@ class SliderController extends AdminController
     {
         $file=$this->ImageUploader($request['image'],20,20);
         $slider=Slider::create([
-            'title'=>$request->get('title'),
-            'url'=>$request->get('url'),
+            'title'=>$request['title'],
+            'url'=>$request['url'],
             'image'=>$file
         ]);
         return redirect(route('slider.index'));

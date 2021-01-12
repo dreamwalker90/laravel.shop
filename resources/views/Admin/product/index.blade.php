@@ -9,6 +9,7 @@
             <th>برند محصول</th>
             <th>تصویر محصول</th>
             <th>قیمت</th>
+            <th>گالری تصاویر</th>
             <th>ویرایش</th>
             <th>حدف</th>
         </tr>
@@ -19,6 +20,9 @@
                 <td>{{$product->brand}}</td>
                 <td><img src="{{$product->image}}" alt="image" width="70"></td>
                 <td>{{number_format($product->price)}} ریال</td>
+                <td>
+                    <a class="btn btn-info" href="products/gallery?id={{$product->id}}">گالری تصاویر</a>
+                </td>
                 <td>
 {{--                @can('editing_Products',$product)--}}
                     <a class="btn btn-primary" href="{{route('products.edit',$product->id)}}">ویرایش</a>
