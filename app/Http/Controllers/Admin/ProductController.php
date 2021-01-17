@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\TohidController;
 use App\Models\Product;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends AdminController
 {
@@ -40,14 +39,15 @@ class ProductController extends AdminController
      */
     public function store(Request $request)
     {
-        $file=$this->ImageUploader($request['image']);
-        Product::create([
+        $file=$this->ImageUploader($request['image'],50,50);
+       $product= Product::create([
             'name'=>$request->get('name'),
             'brand'=>$request->get('brand'),
             'body'=>$request->get('body'),
             'price'=>$request->get('price'),
             'discount'=>$request->get('discount'),
-            'image'=>$file
+            'image'=>$file,
+           'user_id'=>Auth::id(),
         ]);
         return redirect(route('products.index'));
 
@@ -61,7 +61,12 @@ class ProductController extends AdminController
      */
     public function show(Product $product)
     {
-        //
+//        $user=User::where('id',$product['user_id'])->first();
+//        $user=User::find($product['user_id']);
+//        $user = $product->user;
+
+
+        return view('Admin.product.show',compact('product'));
     }
 
     /**
@@ -91,7 +96,7 @@ class ProductController extends AdminController
     public function update(Request $request, Product $product)
     {
         if ($request['image'] !=='') {
-            $file = $this->ImageUploader($request['image']);
+            $file = $this->ImageUploader($request['image'],50,50);
         }else {
             $file = $request->image;
         }
@@ -122,8 +127,27 @@ class ProductController extends AdminController
     public function gallery(Request $request){
         $id=$request->get('id');
         $product=Product::findOrFail($id);
-        return view('Admin.product.index',compact('product'));
+        return view('Admin.product.gallery',compact('product'));
 
+    }
+    public function upload(Request $request,Product $product ){
+        $id=$request->get('id');
+        $files=$request->file('file');
+        dd($files);
+        $name=rand()."_".$id."_".$files->getClientOriginalName();
+        $path='assets/images/';
+        if (!file_exists($path)){
+            mkdir($path,0755,true);
+        }
+        //valid extension
+        $valid_extensions=['jpeg','jpg','png','pdf'];
+
+        // get file extension
+        $file_extension=$files->getClientOriginalExtension();
+        if (in_array(strtolower($file_extension),$valid_extensions)){
+
+        }
+        $files->move($path,$name);
 
     }
 }

@@ -15,8 +15,11 @@ class testController extends Controller
      */
     public function index()
     {
-
-        return view('test');
+        $rooms=[1,2,3];
+        $us=['sajjad','ali','tohid'];
+        $merge=array_merge($rooms,$us);
+        $rand=shuffle($merge);
+        return view('test',compact('rand'));
     }
 
     /**

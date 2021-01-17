@@ -297,7 +297,13 @@ hr {
   transition: all 0.3s ease;
   }
 
+.table-container {
+    position: relative;
+}
 
+.table-container .table td, .table-container .table th {
+    padding: 0.8%;
+}
 
 /* color sidebar */
 

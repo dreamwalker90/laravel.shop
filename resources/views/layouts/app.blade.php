@@ -24,6 +24,7 @@
     <!-- Custom Style-->
     <link href="/assets/css/app-style.css" rel="stylesheet"/>
     <link href="/assets/css/style.css" rel="stylesheet"/>
+    @yield('script')
 </head>
 <body>
 <div id="app">

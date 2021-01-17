@@ -39,7 +39,9 @@ Route::get('login/google/callback', function () {
 
 Auth::routes();
 Route::get('/test',[TestController::class,'index']);
-Route::post('Admin/products/create',[ProductController::class,'create']);
+//Route::post('Admin/products/create',[ProductController::class,'create']);
+Route::get('Admin/products/gallery',[ProductController::class,'gallery']);
+Route::post('Admin/products/upload',[ProductController::class,'upload']);
 Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function (){
     Route::resource('products', ProductController::class);
     Route::resource('user', UserController::class);
@@ -48,5 +50,4 @@ Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function ()
     Route::resource('category', CategoryController::class);
 });
 Route::resource('slider', SliderController::class);
-Route::get('products/gallery',[ProductController::class,'gallery']);
 

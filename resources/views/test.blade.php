@@ -12,24 +12,13 @@
         <link href="/assets/css/style.css" rel="stylesheet"/>
     </head>
 <body>
-<div class="header wrapper">
-    <h2>TOHID</h2>
+<div >
+   <?php
+        $us=array('sajjad','ali','tohid');
+        shuffle($us);
+        dd($us);
+   ?>
 </div>
-<div class="menu wrapper">
-    <div class="menu-box">
-        <a href="#">menu</a>
-        <a href="#">hasan</a>
-        <a href="#">vali</a>
-        <a href="#">mushdana</a>
-        <a href="#">asdaksfd</a>
-    </div>
-</div>
-<div class="main wrapper">
-    <div class="content">content</div>
-    <div class="sidebar">sidebar</div>
-    <div class="footer">footer</div>
-</div>
-
 
 </body>
 </html>
