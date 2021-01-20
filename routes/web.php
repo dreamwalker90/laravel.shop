@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
+//use App\Http\Controllers\Admin\FilterController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
@@ -48,6 +50,13 @@ Route::group(['prefix'=>'Admin','middleware'=>['auth','isVerified']],function ()
     Route::resource('permission', PermissionController::class);
     Route::resource('role', RoleController::class);
     Route::resource('category', CategoryController::class);
+//    Route::resource('filter', FilterController::class);
 });
 Route::resource('slider', SliderController::class);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 

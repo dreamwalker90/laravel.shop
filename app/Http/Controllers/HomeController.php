@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cash;
-use App\Models\Cash_outs;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -28,13 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //the last time that user pushed the cash button
-
+        return view('home');
     }
-
-
 }
-
-
-
-

@@ -1,15 +1,17 @@
 @extends('layouts.app')
 @section('content')
-
+<section class="panel">
+    <header class="panel-header">
+        افزودن گالری به{{$product->name}}
+    </header>
+</section>
 
     <div class="form-group">
-        <form method="post" action="{{url('Admin/products/upload')}}" class="dropzone dz-clickable" enctype="multipart/form-data">
+        <form method="post" action="{{url('Admin/products/upload?id='.$product->id)}}" class="dropzone dz-clickable" enctype="multipart/form-data">
             @csrf
             <div class="dz-default dz-message">
-                <input type="file" name="file" multiple >
+                <input style="display: none" type="file" name="file" multiple >
             </div>
-            <button type="submit" class="btn btn-primary">save</button>
-            <button type="reset" class="btn btn-danger">cancel</button>
         </form>
     </div>
 
