@@ -3,14 +3,12 @@
 
 
     <div class="form-group">
-        <form method="post" action="{{url('Admin/products/upload')}}" class="dropzone dz-clickable" enctype="multipart/form-data">
-            @csrf
-            <div class="dz-default dz-message">
-                <input type="file" name="file" multiple >
-            </div>
-            <button type="submit" class="btn btn-primary">save</button>
-            <button type="reset" class="btn btn-danger">cancel</button>
-        </form>
+            <form method="post" action="{{url('Admin/products/upload?id='.$product->id)}}" class="dropzone dz-clickable" >
+                @csrf
+                <div class="dz-default dz-message">
+                    <button class="dz-button" type="button">Drop files here to upload</button>
+                </div>
+            </form>
     </div>
 
 
